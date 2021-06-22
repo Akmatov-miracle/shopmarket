@@ -8,3 +8,7 @@ celery
 redis
 python-decouple
 psycopg2-binary
+django-cors-headers
+django-ckeditor~=6.1.0
+python-decouple
+django-core
