@@ -1,10 +1,12 @@
-django
+Django
+Pillow
+psycopg2-binary
 djangorestframework
 djangorestframework-simplejwt
+python-decouple
 drf-yasg
-pillow
-django-cors-headers
 celery
 redis
-python-decouple
-psycopg2-binary
+requests
+django-filter
+django-cors-headers
