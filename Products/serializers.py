@@ -4,7 +4,6 @@ from Comments.serializers import CommentSerializer
 from Products.models import Product, ProductImages
 
 
-
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -59,7 +58,6 @@ class ProductImageSerializer(serializers.ModelSerializer):
         representation['image'] = self._get_image_url(instance)
         return representation
 
-
 class ProductCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
@@ -71,3 +69,4 @@ class ProductCommentSerializer(serializers.ModelSerializer):
         representation['comments'] = CommentSerializer(instance.comments.all(), many=True,
                                                          context=self.context).data
         return representation
+

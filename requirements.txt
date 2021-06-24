@@ -44,3 +44,13 @@ uritemplate==3.0.1
 urllib3==1.26.5
 vine==5.0.0
 wcwidth==0.2.5
+django
+djangorestframework
+djangorestframework-simplejwt
+drf-yasg
+pillow
+django-cors-headers
+celery
+redis
+python-decouple
+psycopg2-binary
