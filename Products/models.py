@@ -1,7 +1,6 @@
 from django.db import models
 
 import Category
-from Products import serializers
 
 
 class Products(models.Model):
@@ -14,14 +13,16 @@ class Products(models.Model):
         return self.title
 
 
-class CategorySerializer(serializers.ModelSerializer):
+class Category(models.Model):
+    name = models.CharField(max_length=150)
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    def __str__(self):
+        if not self.parent:
+            return f'{self.name}'
+        else:
+            return f'{self.parent} ---> {self.name}'
 
     class Meta:
-        model = Category
-        fields = ('id', 'name', 'parent')
-
-    def to_representation(self, instance):
-        representation = super().to_representation(instance)
-        if instance.children.exists():
-            representation['children'] = CategorySerializer(instance=instance.children.all(), many=True).data
-        return representation
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
