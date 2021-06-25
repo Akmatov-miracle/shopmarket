@@ -1,4 +1,5 @@
 from django.contrib import admin
 
-import Like
+from Accounts.models import CustomUser
 
+admin.site.register(CustomUser)
