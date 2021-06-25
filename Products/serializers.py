@@ -1,5 +1,6 @@
 from rest_framework import serializers
 
+from Comments.serializers import CommentSerializer
 from Products.models import Product, ProductImages
 
 
@@ -56,3 +57,16 @@ class ProductImageSerializer(serializers.ModelSerializer):
         representation = super().to_representation(instance)
         representation['image'] = self._get_image_url(instance)
         return representation
+
+class ProductCommentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ('id', 'title')
+
+    def to_representation(self, instance):
+        representation = super().to_representation(
+            instance)
+        representation['comments'] = CommentSerializer(instance.comments.all(), many=True,
+                                                         context=self.context).data
+        return representation
+
