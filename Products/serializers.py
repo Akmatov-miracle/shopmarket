@@ -58,6 +58,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
         representation['image'] = self._get_image_url(instance)
         return representation
 
+
 class ProductCommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product

@@ -24,12 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'drf_yasg',
-    # 'django_filters',
-    # 'corsheaders',
-    # 'rest_framework_swagger',
-    'corsheaders',
     'drf_yasg',
+    'django_filters',
+    'corsheaders',
+    'rest_framework_swagger',
     'ckeditor',
     'ckeditor_uploader',
     'Accounts',
@@ -206,14 +204,14 @@ SIMPLE_JWT = {
 
 
 
-# SWAGGER_SETTINGS = {
-#     'SECURITY_DEFINITIONS': {
-#         'Token': {
-#             'type': 'apiKey',
-#             'name': 'Authorization',
-#             'in': 'header',
-#         }
-#     },
-#     'USE_SESSION_AUTH': False
-#
-# }
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Token': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        }
+    },
+    'USE_SESSION_AUTH': False
+
+}

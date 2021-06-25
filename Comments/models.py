@@ -7,6 +7,7 @@ from Products.models import Product
 
 User = get_user_model()
 
+
 class Comment(models.Model):
     author = models.ForeignKey(User, related_name='comments', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='comments', on_delete=models.CASCADE)

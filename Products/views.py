@@ -46,6 +46,7 @@ class ProductImageView(generics.ListAPIView):
     def get_serializer_context(self):
         return {'request': self.request}
 
+
 class ProductUpdateView(generics.UpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = serializers.ProductSerializer

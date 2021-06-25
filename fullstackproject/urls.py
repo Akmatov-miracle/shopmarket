@@ -1,8 +1,7 @@
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-<<<<<<< HEAD
-=======
+
 from django.contrib import admin
 
 from django.urls import path, include, re_path
@@ -10,8 +9,6 @@ from rest_framework import routers, permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
-
->>>>>>> edd8bedd05685c8437d511103361f95db8fc25a1
 from django.urls import path, include
 from rest_framework import routers
 
