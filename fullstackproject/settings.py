@@ -163,37 +163,6 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
 
 
-CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
-    "http://127.0.0.0:5000"
-]
-
-CORS_ALLOWED_ORIGIN_REGEXES = [
-    r"^https://\w+\.example\.com$",
-]
-
-CORS_URLS_REGEX = r'^/api/.*$'
-
-CORS_ALLOW_METHODS = [
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-]
-
-CORS_ORIGIN_ALLOW_ALL = True # If this is used then `CORS_ORIGIN_WHITELIST` will not have any effect
-CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
-]
-CORS_ORIGIN_REGEX_WHITELIST = [
-    'http://localhost:8000',
-]
 
 # Тут указываем что мы будем использовать JWT авторизацию
 REST_FRAMEWORK = {
@@ -241,3 +210,6 @@ SWAGGER_SETTINGS = {
     'USE_SESSION_AUTH': False
 
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True

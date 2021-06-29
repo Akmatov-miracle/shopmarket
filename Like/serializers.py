@@ -1,8 +1,11 @@
 from rest_framework import serializers
 
-from Products.models import Product
+from Like.models import Like
 
-class LikeSerializers(serializers.ModelSerializer):
+
+class LikeSerializer(serializers.ModelSerializer):
+    author = serializers.ReadOnlyField(source='author.email')
+
     class Meta:
-        model = Product
-        fields = ('id', 'title', 'likes', 'dislikes')
+        model = Like
+        fields = ('product', 'like', 'author',)
