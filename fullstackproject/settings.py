@@ -161,9 +161,7 @@ EMAIL_HOST_USER = config('EMAIL_USER')
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media/'
-
-
-
+print('hello')
 # Тут указываем что мы будем использовать JWT авторизацию
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':
