@@ -1,29 +1,24 @@
-from django.http import HttpResponse
-from Products.models import Product
-from rest_framework import generics, serializers
-from Like.serializers import LikeSerializers
+from Comments.permissions import IsOwnerOrReadOnly
+from Like import serializers
+from Like.models import Like
+
+from rest_framework import generics, permissions
 
 
-class LikeView(generics.ListAPIView):
-    queryset = Product.objects.all()
-    serializer_class = LikeSerializers
+class LikeListView(generics.ListAPIView):
+    queryset = Like.objects.all()
+    serializer_class = serializers.LikeSerializer
 
 
-def add_like(request, pk):
-    if request.method == 'GET':
-        product = Product.objects.get(id=int(pk))
-        product.likes += 1
-        product.save()
-    else:
-        raise serializers.ValidationError("HTTP Error 405: Method Not Allowed")
-    return HttpResponse("Спасибо за лайк")
+class LikeCreateView(generics.CreateAPIView):
+    serializer_class = serializers.LikeSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
-def add_dislike(request, pk):
-    if request.method == 'GET':
-        product = Product.objects.get(id=int(pk))
-        product.dislikes += 1
-        product.save()
-    else:
-        raise serializers.ValidationError("HTTP Error 405: Method Not Allowed")
-    return HttpResponse("Жалко было лайк поставить?")
+class LikeDeleteView(generics.DestroyAPIView):
+    queryset = Like.objects.all()
+    serializer_class = serializers.LikeSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly)

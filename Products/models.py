@@ -13,8 +13,8 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=False)
 
-    likes = models.PositiveIntegerField(default=0)
-    dislikes = models.PositiveIntegerField(default=0)
+    # like = models.PositiveIntegerField(default=0)
+    # dislike = models.PositiveIntegerField(default=0)
 
 
     def __str__(self):

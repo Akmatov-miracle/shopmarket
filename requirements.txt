@@ -10,13 +10,9 @@ click-plugins==1.1.1
 click-repl==0.2.0
 coreapi==2.3.3
 coreschema==0.0.4
-Django==3.2.4
 django-ckeditor==6.1.0
 django-core==1.4.1
-django-cors-headers==3.7.0
 django-js-asset==1.2.2
-djangorestframework==3.12.4
-drf-yasg==1.20.0
 gunicorn==20.1.0
 idna==2.10
 inflection==0.5.1
@@ -25,7 +21,6 @@ Jinja2==3.0.1
 kombu==5.1.0
 MarkupSafe==2.0.1
 packaging==20.9
-Pillow==8.2.0
 pkg-resources==0.0.0
 prompt-toolkit==3.0.19
 psycopg2-binary==2.9.1
@@ -49,7 +44,3 @@ djangorestframework-simplejwt
 drf-yasg
 pillow
 django-cors-headers
-celery
-redis
-python-decouple
-psycopg2-binary

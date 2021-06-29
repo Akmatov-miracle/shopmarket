@@ -11,7 +11,7 @@ from drf_yasg import openapi
 from django.urls import path, include
 from rest_framework import routers
 
-
+from Favorites.models import Favorites
 from fullstackproject.views import ProductImageViewSet
 
 router = routers.SimpleRouter()
@@ -40,7 +40,9 @@ urlpatterns = [
     path('api/v1/categories/', include('Category.urls')),
     path('api/v1/products/', include('Products.urls')),
     path('api/v1/comments/', include('Comments.urls')),
-    path('api/v1/like/', include('Like.urls')),
+    path('api/v1/likes/', include('Like.urls')),
+    path('api/v1/favorites/', include('Favorites.urls')),
+    path('api/v1/cart/', include('Cart.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
