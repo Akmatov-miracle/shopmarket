@@ -33,6 +33,10 @@ INSTALLED_APPS = [
     'drf_yasg',
     'ckeditor',
     'ckeditor_uploader',
+    'django_filters',
+    'django_rest_passwordreset',
+
+
     'Accounts',
     'Cart',
     'Category',
@@ -159,15 +163,14 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_PASSWORD = config('EMAIL_PASSWORD')
 EMAIL_HOST_USER = config('EMAIL_USER')
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media/'
 print('hello')
 # Тут указываем что мы будем использовать JWT авторизацию
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':
         [
             'rest_framework_simplejwt.authentication.JWTAuthentication'
-        ]
+        ],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 # И сама JWT авторизация
 SIMPLE_JWT = {

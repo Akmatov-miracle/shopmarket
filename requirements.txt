@@ -44,3 +44,5 @@ djangorestframework-simplejwt
 drf-yasg
 pillow
 django-cors-headers
+django-filter
+django-rest-passwordreset
