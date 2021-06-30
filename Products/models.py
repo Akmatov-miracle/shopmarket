@@ -12,10 +12,14 @@ class Product(models.Model):
     description = RichTextField()
     quantity = models.PositiveIntegerField(default=0)
     available = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     # like = models.PositiveIntegerField(default=0)
     # dislike = models.PositiveIntegerField(default=0)
 
+    class Meta:
+        ordering = ('created_at', )
 
     def __str__(self):
         return self.title

@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
+from Category.serializers import CategorySerializer
 from Comments.serializers import CommentSerializer
+from Like.serializers import LikeSerializer
 from Products.models import Product, ProductImages
 
 
@@ -38,6 +40,7 @@ class ProductSerializer(serializers.ModelSerializer):
         return representation
 
 
+
 class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductImages
@@ -69,4 +72,3 @@ class ProductCommentSerializer(serializers.ModelSerializer):
         representation['comments'] = CommentSerializer(instance.comments.all(), many=True,
                                                          context=self.context).data
         return representation
-
